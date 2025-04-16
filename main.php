@@ -17,21 +17,21 @@ abstract class Vehicule {
 
 	public function afficherDetails(){
 		return [
-			$this->$id,
-			$this->$immatriculation,
-			$this->$marque,
-			$this->$modele,
-			$this->$prixJour,
-			$this->$disponible,
+			$this->id,
+			$this->immatriculation,
+			$this->marque,
+			$this->modele,
+			$this->prixJour,
+			$this->disponible,
 		];
 	}
 	
 	public function calculerPrix(int $jours): float {
-		return $this->$prixJour * $jours;
+		return $this->prixJour * $jours;
 	}
 	
 	public function estDisponible(): bool {
-		return $this->$disponible;
+		return $this->disponible;
 	}
 	
 }
@@ -39,19 +39,20 @@ abstract class Vehicule {
 
 class Voiture extends Vehicule implements ReservableInterface {
 	
-	private $nbPortes;
-	private $transmission;
+	public $nbPortes;
+	public $transmission;
 	
 	
-	public function __construct ($id, $immatriculation, $marque, $modele, $prixJour, $disponible, $nbPortes, $transmission){
-		$this->id = $id,
-		$this->immatriculation = $immatriculation,
-		$this->marque = $marque,
-		$this->modele = $modele,
-		$this->prixJour = $prixJour,
-		$this->disponible = $disponible,
+	public function __construct($id, $immatriculation, $marque, $modele, $prixJour, $disponible, $nbPortes, $transmission){
+
+		$this->id = $id;
+		$this->immatriculation = $immatriculation;
+		$this->marque = $marque;
+		$this->modele = $modele;
+		$this->prixJour = $prixJour;
+		$this->disponible = $disponible;
 		
-		$this->nbPortes = $nbPortes,
+		$this->nbPortes = $nbPortes;
 		$this->transmission = $transmission;
 
 	}
@@ -84,12 +85,12 @@ class Moto extends Vehicule implements ReservableInterface {
 	private $cylindree;
 	
 	public function __construct ($id, $immatriculation, $marque, $modele, $prixJour, $disponible, $cylindree){
-		$this->id = $id,
-		$this->immatriculation = $immatriculation,
-		$this->marque = $marque,
-		$this->modele = $modele,
-		$this->prixJour = $prixJour,
-		$this->disponible = $disponible,
+		$this->id = $id;
+		$this->immatriculation = $immatriculation;
+		$this->marque = $marque;
+		$this->modele = $modele;
+		$this->prixJour = $prixJour;
+		$this->disponible = $disponible;
 		
 		$this->cylindree = $cylindree;
 
@@ -122,13 +123,13 @@ class Camion extends Vehicule implements ReservableInterface {
 	
 	public function __construct ($id, $immatriculation, $marque, $modele, $prixJour, $disponible, $capaciteTonnage){
 
-		$this->id = $id,
-		$this->immatriculation = $immatriculation,
-		$this->marque = $marque,
-		$this->modele = $modele,
-		$this->prixJour = $prixJour,
-		$this->disponible = $disponible,
-		$this->capaciteTonnage = $capaciteTonnage
+		$this->id = $id;
+		$this->immatriculation = $immatriculation;
+		$this->marque = $marque;
+		$this->modele = $modele;
+		$this->prixJour = $prixJour;
+		$this->disponible = $disponible;
+		$this->capaciteTonnage = $capaciteTonnage;
 
 	}
 	
@@ -169,9 +170,9 @@ class Client extends Personne {
 	
 	public function __construct ($nom, $prenom, $email, $numeroClient){
 		
-		$this->id = $nom,
-		$this->immatriculation = $prenom,
-		$this->marque = $email,
+		$this->id = $nom;
+		$this->immatriculation = $prenom;
+		$this->marque = $email;
 
 		
 		$this->numeroClient = $numeroClient;
